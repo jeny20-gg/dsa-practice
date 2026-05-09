@@ -1,0 +1,20 @@
+\\ PROBLEM : Check if the string is subsequence of other
+\\ PLATFORM : GeeksforGeeks
+\\ DIFFICULTY : Easy
+
+
+
+class Solution {
+  public:
+    bool isSubSeq(string& s1, string& s2) {
+        // code here
+        int i=0;
+        int j=0;
+        while(j < s2.length()) {
+            if(s1[i] == s2[j])
+            i++;
+            j++;
+        }
+        return i == s1.length();
+    }
+};
