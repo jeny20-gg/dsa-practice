@@ -1,0 +1,29 @@
+PROBLEM : Minimize Max Distance to Gas Station 
+PLATFORM : GeeksforGeeks
+DIFFICULTY : Hard
+
+
+
+class Solution {
+  public:
+    double minMaxDist(vector<int> &stations, int K) {
+        // Code here
+        int maxgap=0;
+        int n=stations.size();
+        for(int i=1;i<n;i++){
+            maxgap=max(maxgap,stations[i]-stations[i-1]);
+        }
+        double low = 0, high = maxgap;
+        while (high-low>1e-6) {
+            double mid = (low+high)/2;
+            int count = 0;
+            for(int i=1;i<n;i++){
+                double gap = stations[i]-stations[i-1];
+                count+=(int)(gap/mid);
+            }
+            if (count <= K) high=mid;
+            else low=mid;
+        }
+        return low;
+    }
+};
