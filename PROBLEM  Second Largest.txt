@@ -1,0 +1,26 @@
+// PROBLEM : Second Largest
+// PLATFORM : GeeksforGeeks
+// DIFFICULTLY : Easy
+
+
+
+
+class Solution {
+  public:
+    int getSecondLargest(vector<int> &arr) {
+        // code here
+        int n=arr.size();
+        int res=-1,largest=-1;
+        for(int i=0;i<n;i++){
+            if(arr[i]>largest) {
+                res=largest;
+            largest=arr[i];
+        }
+        else if (arr[i]!=largest && arr[i]>res) {
+            res=arr[i];
+            }
+        }
+        return res;
+        
+    }
+};
